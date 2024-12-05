@@ -52,7 +52,7 @@ getValues :: (Data k) => k -> [String]
 getValues = gmapQ tShow
   where
     tShow :: (Data d) => d -> String
-    tShow = mkQ unknown id `extQ` (upperHead . show @String)
+    tShow = mkQ unknown id `extQ` (show @String)
 
 getBody :: (Data d) => d -> Body
 getBody = zip <$> getFields <*> getValues
